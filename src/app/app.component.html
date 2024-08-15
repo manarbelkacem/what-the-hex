@@ -1,1 +1,27 @@
-<button class="btn btn-primary">hey</button>
+<div class="container text-center">
+  <h1 class="mt-3">What The Hex?</h1>
+  <p class="mt-3"> Click on the color that matches the hex code below:</p>
+  <h3 class="mt-3">{{ targetColorCode }}</h3>
+
+  <div class="row row-cols-4 justify-content-center mt-3">
+    @for (color of colors;track color){
+      <div class="p-2">
+        <div class="color-rectangle"
+             [style.background-color]="color"
+             (click)="checkColor(color)"
+        >
+        </div>
+      </div>
+    }
+  </div>
+  <div [class]="resultClass">{{resultMessage}}</div>
+  <button class="mt-3 btn btn-primary" (click)="startNewGame()">Play Again</button>
+  <h5 class="mt-3">Points : {{points}}/{{attempts}}</h5>
+</div>
+<small class="text-secondary w-100 text-center position-fixed bottom-0">
+  Made by
+  <a href="https://www.linkedin.com/in/manarbelkacem" target="_blank">
+    Manar Belkacem
+  </a>
+  using Angular 17
+</small>
